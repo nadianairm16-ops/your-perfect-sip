@@ -16,7 +16,7 @@ export default function HomePage() {
         <div className="rounded-[2.4rem] border border-coffee/10 bg-white/90 p-8 shadow-soft sm:p-10">
           <div className="rounded-[2rem] border border-coffee/10 bg-cream/90 p-6 shadow-sm">
             <p className="text-xs uppercase tracking-[0.32em] text-coffee/60">Design the drink only you would order</p>
-            <h1 className="mt-4 text-5xl font-semibold text-coffee sm:text-6xl">Design the drink only you would order</h1>
+            <h1 className="mt-4 text-4xl font-semibold text-coffee sm:text-5xl lg:text-6xl">Design the drink only you would order</h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-coffee/75 sm:text-lg">
               Customize every detail from the base to the charm, then let the Capybara Critic judge your creation.
             </p>
