@@ -11,12 +11,12 @@ export default function HomePage() {
   const unlocked = useAppStore((state) => state.unlocked)
 
   return (
-    <div className="mx-auto max-w-2xl py-10 lg:py-14">
+    <div className="mx-auto max-w-xl py-10 lg:py-14">
       <section className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
         <div className="rounded-[2.4rem] border border-coffee/10 bg-white/90 p-8 shadow-soft sm:p-10">
           <div className="rounded-[2rem] border border-coffee/10 bg-cream/90 p-6 shadow-sm">
             <p className="text-xs uppercase tracking-[0.32em] text-coffee/60">Design the drink only you would order</p>
-            <h1 className="mt-4 text-3xl font-semibold text-coffee sm:text-4xl lg:text-5xl">Design the drink only you would order</h1>
+            <h1 className="mt-4 text-2xl font-semibold text-coffee sm:text-3xl">Design the drink only you would order</h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-coffee/75 sm:text-lg">
               Customize every detail from the base to the charm, then let the Capybara Critic judge your creation.
             </p>

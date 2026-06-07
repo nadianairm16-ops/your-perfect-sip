@@ -108,10 +108,10 @@ export default function GamePage() {
 
   if (!unlocked) {
     return (
-      <div className="mx-auto max-w-2xl py-16 text-center">
+      <div className="mx-auto max-w-xl py-16 text-center">
         <div className="rounded-[2.4rem] border border-coffee/10 bg-white/90 p-10 shadow-soft">
           <Lock className="mx-auto mb-4 h-12 w-12 text-coffee/70" />
-          <h1 className="text-3xl font-semibold text-coffee">Game locked</h1>
+          <h1 className="text-2xl font-semibold text-coffee">Game locked</h1>
           <p className="mt-4 text-sm leading-7 text-coffee/75">
             Score five perfect drinks in a row with the Capybara Critic to unlock this cozy rhythm mixing challenge.
           </p>
@@ -128,7 +128,7 @@ export default function GamePage() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl py-10 lg:py-14">
+    <div className="mx-auto max-w-xl py-10 lg:py-14">
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.section
           initial={{ opacity: 0, y: 20 }}
