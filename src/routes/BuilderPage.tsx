@@ -111,8 +111,8 @@ export default function BuilderPage() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl py-10 lg:py-14">
-      <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+    <div className="mx-auto max-w-4xl py-10 lg:py-14">
+      <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,7 +122,7 @@ export default function BuilderPage() {
           <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.32em] text-coffee/60">Create a custom sip</p>
-              <h1 className="mt-3 text-3xl font-semibold text-coffee sm:text-4xl">Your builder</h1>
+              <h1 className="mt-3 text-2xl font-semibold text-coffee sm:text-3xl">Your builder</h1>
             </div>
             <div className="rounded-3xl border border-coffee/10 bg-latte/85 px-4 py-3 text-sm text-coffee/75">
               Streak: {streak} / 5
