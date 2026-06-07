@@ -39,25 +39,18 @@ jobs:
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update docs build" && git push)
 
       - name: Configure and Deploy Pages
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            
-            // Configure Pages to use /docs folder
-            try {
-              await github.rest.repos.updatePagesConfiguration({
-                owner,
-                repo,
-                source: {
-                  branch: 'main',
-                  path: '/docs'
-                },
-                build_type: 'workflow'
-              });
-              console.log('Pages configured to use /docs');
-            } catch (error) {
-              console.log('Pages configuration result:', error.message);
-            }
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Try to configure Pages using gh CLI with verbose output
+          gh api repos/$GITHUB_REPOSITORY/pages \
+            --method PUT \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            -f "source.branch=main" \
+            -f "source.path=/docs" || true
+          
+          # Verify configuration
+          sleep 2
+          gh api repos/$GITHUB_REPOSITORY/pages --jq '.source'
 
