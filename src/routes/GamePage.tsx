@@ -197,7 +197,7 @@ export default function GamePage() {
                   key={note.id}
                   type="button"
                   onClick={() => handleTap(note.id)}
-                  className={`absolute left-[${note.x}%] inline-flex -translate-x-1/2 transform items-center justify-center rounded-full border border-coffee/15 px-4 py-3 text-xs font-semibold transition ${
+                  className={`absolute inline-flex -translate-x-1/2 transform items-center justify-center rounded-full border border-coffee/15 px-4 py-3 text-xs font-semibold transition ${
                     note.hit ? 'bg-sage/80 text-white' : 'bg-white text-coffee shadow-soft'
                   }`}
                   style={{ top: note.y, left: `${note.x}%` }}

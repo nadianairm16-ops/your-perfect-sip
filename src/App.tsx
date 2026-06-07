@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
+import ErrorBoundary from './components/ErrorBoundary'
 import HomePage from './routes/HomePage'
 import BuilderPage from './routes/BuilderPage'
 import GamePage from './routes/GamePage'
@@ -29,11 +30,13 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-cream text-coffee">
-      <Navbar />
-      <main className="px-4 pb-16 sm:px-6 lg:px-10">
-        <AnimatedRoutes />
-      </main>
-    </div>
+    <ErrorBoundary>
+      <div className="min-h-screen bg-cream text-coffee">
+        <Navbar />
+        <main className="px-4 pb-16 sm:px-6 lg:px-10">
+          <AnimatedRoutes />
+        </main>
+      </div>
+    </ErrorBoundary>
   )
 }
