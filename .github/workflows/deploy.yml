@@ -38,5 +38,26 @@ jobs:
           git add docs
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update docs build" && git push)
 
-      - name: Deploy to Pages
-        uses: actions/deploy-pages@v2
+      - name: Configure and Deploy Pages
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            
+            // Configure Pages to use /docs folder
+            try {
+              await github.rest.repos.updatePagesConfiguration({
+                owner,
+                repo,
+                source: {
+                  branch: 'main',
+                  path: '/docs'
+                },
+                build_type: 'workflow'
+              });
+              console.log('Pages configured to use /docs');
+            } catch (error) {
+              console.log('Pages configuration result:', error.message);
+            }
+
