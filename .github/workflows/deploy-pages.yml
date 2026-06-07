@@ -1,0 +1,52 @@
+name: Build and Deploy GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production app
+        run: npm run build
+
+      - name: Prepare docs output
+        run: |
+          rm -rf docs
+          cp -r dist docs
+          touch docs/.nojekyll
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
+          keep_files: false
+          commit_message: 'Deploy GitHub Pages from main'
+
+      - name: Configure GitHub Pages source
+        run: |
+          curl -sSL -X PUT \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${GITHUB_REPOSITORY}/pages \
+            -d '{"source":{"branch":"gh-pages","path":"/"}}'
