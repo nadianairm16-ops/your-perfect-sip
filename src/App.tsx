@@ -22,6 +22,7 @@ function AnimatedRoutes() {
           <Route path="/" element={<HomePage />} />
           <Route path="/builder" element={<BuilderPage />} />
           <Route path="/game" element={<GamePage />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
