@@ -11,8 +11,8 @@ export default function HomePage() {
   const unlocked = useAppStore((state) => state.unlocked)
 
   return (
-    <div className="mx-auto max-w-7xl py-10 lg:py-14">
-      <section className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+    <div className="mx-auto max-w-5xl py-10 lg:py-14">
+      <section className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
         <div className="rounded-[2.4rem] border border-coffee/10 bg-white/90 p-8 shadow-soft sm:p-10">
           <div className="rounded-[2rem] border border-coffee/10 bg-cream/90 p-6 shadow-sm">
             <p className="text-xs uppercase tracking-[0.32em] text-coffee/60">Design the drink only you would order</p>

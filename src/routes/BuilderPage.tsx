@@ -111,7 +111,7 @@ export default function BuilderPage() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl py-10 lg:py-14">
+    <div className="mx-auto max-w-5xl py-10 lg:py-14">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <motion.section
           initial={{ opacity: 0, y: 20 }}
