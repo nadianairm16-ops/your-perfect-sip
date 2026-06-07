@@ -8,10 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -25,32 +21,11 @@ jobs:
 
       - run: npm run build
 
-      - name: Copy dist to docs
-        run: |
-          rm -rf docs
-          cp -r dist docs
-          touch docs/.nojekyll
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: nadianairm16-ops.github.io/your-perfect-sip
 
-      - name: Commit and push docs
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update docs build" && git push)
-
-      - name: Configure and Deploy Pages
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Try to configure Pages using gh CLI with verbose output
-          gh api repos/$GITHUB_REPOSITORY/pages \
-            --method PUT \
-            --header "Accept: application/vnd.github+json" \
-            --header "X-GitHub-Api-Version: 2022-11-28" \
-            -f "source.branch=main" \
-            -f "source.path=/docs" || true
-          
-          # Verify configuration
-          sleep 2
-          gh api repos/$GITHUB_REPOSITORY/pages --jq '.source'
 
