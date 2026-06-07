@@ -108,7 +108,7 @@ export default function GamePage() {
 
   if (!unlocked) {
     return (
-      <div className="mx-auto max-w-4xl py-16 text-center">
+      <div className="mx-auto max-w-2xl py-16 text-center">
         <div className="rounded-[2.4rem] border border-coffee/10 bg-white/90 p-10 shadow-soft">
           <Lock className="mx-auto mb-4 h-12 w-12 text-coffee/70" />
           <h1 className="text-3xl font-semibold text-coffee">Game locked</h1>
@@ -128,7 +128,7 @@ export default function GamePage() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl py-10 lg:py-14">
+    <div className="mx-auto max-w-2xl py-10 lg:py-14">
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.section
           initial={{ opacity: 0, y: 20 }}

@@ -34,7 +34,7 @@ export default function App() {
     <ErrorBoundary>
       <div className="min-h-screen bg-cream text-coffee">
         <Navbar />
-        <main className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
+        <main className="mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:px-8">
           <AnimatedRoutes />
         </main>
       </div>
